@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crm_customer_request_form_view" model="ir.ui.view">
+            <field name="name">crm_customer_request.form</field>
+            <field name="model">crm.customer.request</field>
+            <field name="arch" type="xml">
+                <form string="Customer Request">
+                    <sheet>
+<!--                        <div class="oe_title">-->
+<!--                            <label for="example_title"/>-->
+<!--                            <h1>-->
+<!--                                <field name="product_id" placeholder="Title"/>-->
+<!--                            </h1>-->
+<!--                        </div>-->
+                        <group>
+                            <group>
+                                <field name="product_id"/>
+                            </group>
+                            <group>
+                                <field name="opportunity_id"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="qty"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="crm_customer_request_tree_view" model="ir.ui.view">
+            <field name="name">crm_customer_request.tree</field>
+            <field name="model">crm.customer.request</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="product_id"/>
+                    <field name="opportunity_id"/>
+                    <field name="date"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="crm_customer_request_search_view" model="ir.ui.view">
+            <field name="name">crm_customer_request.search</field>
+            <field name="model">crm.customer.request</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+<!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+<!--                                context="{'group_by':'example_field'}"/>-->
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="crm_customer_request" model="ir.actions.act_window">
+            <field name="name">Customer Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.customer.request</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem name="Customer Request" id="crm_customer_request_menu" parent="crm.crm_menu_sales" action="crm_customer_request"/>
+
+    </data>
+</odoo>
